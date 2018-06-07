@@ -1,13 +1,83 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <meta charset="UTF-8">
-    <title>Effective JavaScript: Frogger</title>
-    <link rel="stylesheet" href="css/style.css">
+  <meta charset="UTF-8">
+  <title>Effective JavaScript: Frogger</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link href="https://fonts.googleapis.com/css?family=Poor+Story"
+  rel="stylesheet">
 </head>
 <body>
-    <script src="js/resources.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/engine.js"></script>
+  <div class="end-modal">
+    <div class="end-container">
+      <div class="end-text">
+        <h1>GAME OVER</h1>
+        <h3>You lost all of your lives before reaching the water.</h3>
+      </div>
+      <div class="buttons">
+        <button class="end-button">Play Again?</button>
+        <button class="end-button">Change Settings?</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="settings">
+    <div class="settings-container">
+      <div class="settings-header">
+        <h1>Settings</h1>
+      </div>
+      <div class="divider">
+      </div>
+      <div class="settings-body">
+        <div class="settings-diff">
+          <div class="settings-text">
+            <h2>Choose Your Difficulty</h2>
+          </div>
+          <ul class="difficulty">
+            <li class="diff-icon">easy</li>
+            <li class="diff-icon">not so easy</li>
+            <li class="diff-icon">you can't win</li>
+          </ul>
+        </div>
+        <div class="settings-char">
+          <div class="settings-text">
+            <h2>Choose Your Character</h2>
+          </div>
+          <ul class="characters">
+            <li class="char-icon" id="char-boy"><img src="images/char-boy.png" alt="boy"></li>
+            <li class="char-icon" id="char-cat-girl"><img src="images/char-cat-girl.png" alt="cat
+            girl"></li>
+            <li class="char-icon" id="char-horn-girl"><img src="images/char-horn-girl.png" alt="horn
+            girl"></li>
+            <li class="char-icon" id="char-pink-girl"><img src="images/char-pink-girl.png" alt="pink
+            girl"></li>
+            <li class="char-icon" id="char-princess-girl"><img src="images/char-princess-girl.png"
+            alt="princess"></li>
+          </ul>
+        </div>
+      </div>
+      <div class="settings-footer">
+        <button class="submit">
+          START
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <div class="game">
+    <div class="game-header">
+      <h2>when bugs touch me, i die</h2>
+      <h1>the game </h1>
+    </div>
+    <ul class="game-stats">
+      <li>difficulty: <span id="diff-value">1</span></li>
+      <li>lives: <span id="life-value">3</span></li>
+    </ul>
+    <div class="canvas">
+      <script src="js/resources.js"></script>
+      <script src="js/app.js"></script>
+      <script src="js/engine.js"></script>
+    </div>
+  </div>
 </body>
 </html>
