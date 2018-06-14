@@ -1,6 +1,10 @@
+//Variables to save the difficulty selected at the start of the game, along
+//with number of remaining lives.
 let difficulty = null;
 let lives = 3;
 
+//Function that adds event listeners to Settings modal (character and
+//difficulty selection).
 function selection() {
   const container = document.body.querySelector('.settings');
   container.style.display = 'flex';
@@ -94,7 +98,8 @@ Enemy.prototype.update = function(dt) {
     this.x = -100;
   }
 
-  //Check for collision with Player object. TODO Then run the youDied function.
+  //Check for collision with Player object. Then changes the number of
+  //remaining lives if a collision occurs.
   if (player.x < (this.x + 65) &&
     player.x > (this.x - 65) &&
     player.y < (this.y + 30) &&
@@ -104,6 +109,8 @@ Enemy.prototype.update = function(dt) {
     checkLives();
   }
 
+  //Decrements lives after each collision.
+  //IF lives = 0, then player speed is reduced to 0 and gameOver runs.
   function checkLives() {
     const elem = document.body.querySelector('.game-stats');
     const lifeText = elem.querySelector('#life-value');
@@ -115,6 +122,7 @@ Enemy.prototype.update = function(dt) {
     lifeText.innerHTML = lives;
 
     if (lives === 0) {
+      player.speed = 0;
       gameOver();
     }
   }
@@ -138,6 +146,7 @@ const Player = function(x, y, speed, sprite) {
 
 Player.prototype.update = function() {
 
+  //If the player touches the water, then the gameWin function runs.
   if (this.y <= 0) {
     this.x = 200;
     this.y = 400;
@@ -199,6 +208,10 @@ function createEnemies() {
     diff = 400;
   }
 
+  //Creates 4 enemies, spacing them out evenly along the y axis of the canvas.
+  //Enemy speed is equal to the 'diff' variable multipled by a random number.
+  //'diff' changes based on the difficulty chosen at the beginning of the game.
+  //The harder the difficulty chosen, the faster the enemies move.
   for (let i = 1; i < 5; i++) {
     const speed = diff + ((Math.floor(Math.random() * Math.floor(10)) * 10));
     const position = (i * 90) - 50;
@@ -212,6 +225,8 @@ function createEnemies() {
 // Place the player object in a variable called player
 let player = null;
 
+//The image in passed to this object is a placeholder, in case the player does
+//not select a character at the start of the game.
 function createPlayer() {
   player = new Player(200, 400, 15, 'images/char-boy.png');
 }
@@ -219,7 +234,10 @@ function createPlayer() {
 createPlayer();
 
 // This listens for key presses and sends the keys to your
-// Player.handleInput() method. You don't need to modify this.
+// Player.handleInput() method.
+//
+// Added the 'W, A, S, D' keys, so that the player has options for controlling
+// movement.
 document.addEventListener('keydown', function(e) {
     var allowedKeys = {
         37: 'left',
@@ -235,6 +253,7 @@ document.addEventListener('keydown', function(e) {
     player.handleInput(allowedKeys[e.keyCode]);
 });
 
+//Displays the game over modal after lives have reached 0.
 function gameOver() {
   const endModal = document.body.querySelector('.end-modal');
   const buttons = endModal.getElementsByTagName('button');
@@ -243,6 +262,8 @@ function gameOver() {
   endListeners(buttons, endModal);
 }
 
+//Displays the game over modal with new text, telling the player that he/she
+//has won.
 function gameWin() {
   const endModal = document.body.querySelector('.end-modal');
   const buttons = endModal.getElementsByTagName('button');
@@ -257,10 +278,13 @@ function gameWin() {
   endListeners(buttons, endModal);
 }
 
+//Adds event listeners to the game over modal. Resets number of lives and
+//player speed if the 'Play Again' button is clicked.
 function endListeners(elem, modal) {
   const lifeText = document.body.querySelector('#life-value');
 
   elem[0].addEventListener('click', function() {
+    player.speed = 15;
     lives = 3;
     lifeText.innerHTML = lives;
     modal.style.display = 'none';
