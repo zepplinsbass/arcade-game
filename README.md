@@ -13,11 +13,8 @@ water. (All bugs hate water. Google it.)
 2. Then, choose a character.
 3. Then, move your character to that sweet, sweet H20.  
 `UP = W or Up Arrow
-
 DOWN = S or Down Arrow
-
 RIGHT = D or Right Arrow
-
 LEFT = A or Left Arrow`
 
 4. If you get touched by a killer bug, you lose a life. If you lose all
