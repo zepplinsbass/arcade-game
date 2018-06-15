@@ -19,6 +19,7 @@ DOWN = S or Down Arrow
 RIGHT = D or Right Arrow
 
 LEFT = A or Left Arrow`
+
 4. If you get touched by a killer bug, you lose a life. If you lose all
    3 lives, you get a game over screen.
 
