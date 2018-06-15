@@ -1,6 +1,25 @@
-frontend-nanodegree-arcade-game
-===============================
+# When Bugs Touch Me, I Die: the Game
 
-Students should use this [rubric](https://review.udacity.com/#!/projects/2696458597/rubric) for self-checking their submission. Make sure the functions you write are **object-oriented** - either class functions (like Player and Enemy) or class prototype functions such as Enemy.prototype.checkCollisions, and that the keyword 'this' is used appropriately within your class and class prototype functions to refer to the object the function is called upon. Also be sure that the **readme.md** file is updated with your instructions on both how to 1. Run and 2. Play your arcade game.
+## Running the Game
+First, clone or download the git repository from github.
+Then, open index.html in your browser.
 
-For detailed instructions on how to get started, check out this [guide](https://docs.google.com/document/d/1v01aScPjSWCCWQLIpFqvg3-vXLH2e8_SZQKC8jNO0Dc/pub?embedded=true).
+## Object of the Game
+Escape the killer bugs. Manuever your character around them and make it to the safety of the
+water. (All bugs hate water. Google it.)
+
+## How To Play the Game
+1. Upon launching the game, choose a difficulty level.
+2. Then, choose a character.
+3. Then, move your character to that sweet, sweet H20.
+`UP = W or Up Arrow
+DOWN = S or Down Arrow
+RIGHT = D or Right Arrow
+LEFT = A or Left Arrow`
+4. If you get touched by a killer bug, you lose a life. If you lose all
+   3 lives, you get a game over screen.
+
+## References
+[https://www.w3schools.com/jsref/met_loc_reload.asp]
+[https://developer.mozilla.org/en-US/docs/Games/Techniques/2D_collision_detection]
+[https://github.com/collections/javascript-game-engines]
